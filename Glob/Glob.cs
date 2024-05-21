@@ -593,7 +593,10 @@ namespace Ganss.IO
             {
                 subDirs = root.EnumerateDirectories();
             }
-            catch (Exception ex) when (ex is DirectoryNotFoundException || ex is SecurityException)
+            catch (Exception ex) when (
+            ex is DirectoryNotFoundException ||
+            ex is SecurityException ||
+            ex is SystemException)
             {
                 yield break;
             }
